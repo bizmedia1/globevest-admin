@@ -179,7 +179,27 @@ color:#FFC003;
 font-weight:700;
 
 }
+#logoutBtn{
 
+width:100%;
+
+height:50px;
+
+margin-bottom:20px;
+
+border:none;
+
+border-radius:14px;
+
+background:#ff4d4f;
+
+color:white;
+
+font-weight:700;
+
+cursor:pointer;
+
+}
 </style></head><body><script>
 
 if(
@@ -199,7 +219,9 @@ window.location.href =
 Globevest Admin
 </h1><p class="subtitle">
 Manage payment details for the Globevest portal.
-</p></div><div class="card"><div class="field">
+</p><button id="logoutBtn">
+Logout
+</button></div><div class="card"><div class="field">
 <label>ACCOUNT NUMBER</label>
 <input id="accountNumber">
 </div><div class="field">
@@ -311,6 +333,17 @@ status.innerText =
   }
 
 });
+document
+.getElementById("logoutBtn")
+.addEventListener("click",()=>{
 
+localStorage.removeItem(
+"adminLoggedIn"
+);
+
+window.location.href =
+"/login.html";
+
+});
 </script></body>
 </html>
