@@ -180,7 +180,20 @@ font-weight:700;
 
 }
 
-</style></head><body><div class="container"><div class="header"><div class="logo">
+</style></head><body><script>
+
+if(
+localStorage.getItem(
+"adminLoggedIn"
+) !== "true"
+){
+
+window.location.href =
+"/login.html";
+
+}
+
+</script><div class="container"><div class="header"><div class="logo">
 ✦
 </div><h1>
 Globevest Admin
