@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+
 export default function handler(req, res) {
 
   res.setHeader(
@@ -5,21 +8,16 @@ export default function handler(req, res) {
     "*"
   );
 
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET"
+  const filePath = path.join(
+    process.cwd(),
+    "data",
+    "payment.json"
   );
 
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Content-Type"
+  const data = JSON.parse(
+    fs.readFileSync(filePath, "utf8")
   );
 
-  res.status(200).json({
-    accountNumber: "0941410430",
-    bankName: "POmiaa",
-    accountName: "ASPFkwjIY",
-    telegram: "globevest_support"
-  });
+  res.status(200).json(data);
 
 }
